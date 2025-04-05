@@ -112,7 +112,7 @@
 #
 
 # For VS2019 and Xcode 12+ support.
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.13)
 
 # Only generate Debug and Release configuration types.
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
@@ -137,26 +137,43 @@ endif()
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
   if("${PROJECT_ARCH}" STREQUAL "arm64")
     set(CEF_PLATFORM "macosarm64")
-  elseif("${PROJECT_ARCH}" STREQUAL "x86_64")
-    set(CEF_PLATFORM "macosx64")
-  elseif("${CMAKE_HOST_SYSTEM_PROCESSOR}" STREQUAL "arm64")
-    set(PROJECT_ARCH "arm64")
-    set(CEF_PLATFORM "macosarm64")
   else()
-    set(PROJECT_ARCH "x86_64")
     set(CEF_PLATFORM "macosx64")
   endif()
 elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
-  if(CMAKE_SIZEOF_VOID_P MATCHES 8)
+  if("${PROJECT_ARCH}" STREQUAL "amd64")
     set(CEF_PLATFORM "linux64")
+  elseif("${PROJECT_ARCH}" STREQUAL "arm64")
+    set(CEF_PLATFORM "linuxarm64")
+  elseif("${PROJECT_ARCH}" STREQUAL "arm/v6")
+    set(CEF_PLATFORM "linuxarm")
   else()
     set(CEF_PLATFORM "linux32")
   endif()
 elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
-  if(CMAKE_SIZEOF_VOID_P MATCHES 8)
-    set(CEF_PLATFORM "windows64")
+  #Stolen from Jetbrains jcef repository for the arm64 windows build
+  if(MSVC)
+    include(CheckSymbolExists)
+
+    # MSVC predefines _M_ARM64 for compilations that target ARM64
+    # and _M_AMD64 for compilations that target x86_64.
+    check_symbol_exists("_M_ARM64" "" CEF_PLATFORM_WINARM64)
+    check_symbol_exists("_M_AMD64" "" CEF_PLATFORM_WIN64)
+
+    # We also should set PROJECT_ARCH explicitly because FindCEF.cmake deduces it incorrectly for
+    # cross-compilation cases.
+    if(CEF_PLATFORM_WINARM64)
+      set(CEF_PLATFORM "windowsarm64")
+      set(PROJECT_ARCH "arm64")
+    elseif(CEF_PLATFORM_WIN64)
+      set(CEF_PLATFORM "windows64")
+      set(PROJECT_ARCH "x86_64")
+    else()
+      set(CEF_PLATFORM "windows32")
+      set(PROJECT_ARCH "x86")
+    endif()
   else()
-    set(CEF_PLATFORM "windows32")
+    message(FATAL_ERROR "Building JCEF for Windows using non-MSVC compiler is not supported.")
   endif()
 endif()
 
