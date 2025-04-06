@@ -72,19 +72,19 @@ import javax.swing.SwingUtilities;
  * The visibility of this class is "package". To create a new
  * CefBrowser instance, please use CefBrowserFactory.
  */
-class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
+public class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
     private CefRenderer renderer_;
     private GLCanvas canvas_;
     private long window_handle_ = 0;
     private boolean justCreated_ = false;
-    private Rectangle browser_rect_ = new Rectangle(0, 0, 1, 1); // Work around CEF issue #1437.
+    public Rectangle browser_rect_ = new Rectangle(0, 0, 1, 1); // Work around CEF issue #1437.
     private Point screenPoint_ = new Point(0, 0);
     private double scaleFactor_ = 1.0;
     private int depth = 32;
     private int depth_per_component = 8;
     private boolean isTransparent_;
 
-    CefBrowserOsr(CefClient client, String url, boolean transparent, CefRequestContext context) {
+    public CefBrowserOsr(CefClient client, String url, boolean transparent, CefRequestContext context) {
         this(client, url, transparent, context, null, null);
     }
 
