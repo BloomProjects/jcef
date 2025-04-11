@@ -10,7 +10,8 @@ package org.cef.misc;
 public class IntRef {
     private int value_;
 
-    public IntRef() {}
+    public IntRef() {
+    }
 
     public IntRef(int value) {
         value_ = value;

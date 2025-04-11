@@ -7,7 +7,8 @@ package org.cef.callback;
 import org.cef.misc.CefPrintSettings;
 
 class CefPrintDialogCallback_N extends CefNativeAdapter implements CefPrintDialogCallback {
-    CefPrintDialogCallback_N() {}
+    CefPrintDialogCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -34,5 +35,6 @@ class CefPrintDialogCallback_N extends CefNativeAdapter implements CefPrintDialo
     }
 
     private final native void N_Continue(long self, CefPrintSettings settings);
+
     private final native void N_Cancel(long self);
 }

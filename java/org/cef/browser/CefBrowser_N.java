@@ -5,12 +5,7 @@
 package org.cef.browser;
 
 import org.cef.CefClient;
-import org.cef.browser.CefRequestContext;
-import org.cef.callback.CefDragData;
-import org.cef.callback.CefNativeAdapter;
-import org.cef.callback.CefPdfPrintCallback;
-import org.cef.callback.CefRunFileDialogCallback;
-import org.cef.callback.CefStringVisitor;
+import org.cef.callback.*;
 import org.cef.handler.CefClientHandler;
 import org.cef.handler.CefDialogHandler.FileDialogMode;
 import org.cef.handler.CefRenderHandler;
@@ -18,18 +13,13 @@ import org.cef.handler.CefWindowHandler;
 import org.cef.misc.CefPdfPrintSettings;
 import org.cef.network.CefRequest;
 
-import java.awt.Canvas;
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Window;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowEvent;
 import java.util.Vector;
-
-import javax.swing.SwingUtilities;
 
 /**
  * This class represents all methods which are connected to the
@@ -50,7 +40,7 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
     private volatile boolean isClosing_ = false;
 
     protected CefBrowser_N(CefClient client, String url, CefRequestContext context,
-            CefBrowser_N parent, Point inspectAt) {
+                           CefBrowser_N parent, Point inspectAt) {
         client_ = client;
         url_ = url;
         request_context_ = context;
@@ -146,13 +136,13 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
     }
 
     protected abstract CefBrowser_N createDevToolsBrowser(CefClient client, String url,
-            CefRequestContext context, CefBrowser_N parent, Point inspectAt);
+                                                          CefRequestContext context, CefBrowser_N parent, Point inspectAt);
 
     /**
      * Create a new browser.
      */
     protected void createBrowser(CefClientHandler clientHandler, long windowHandle, String url,
-            boolean osr, boolean transparent, Component canvas, CefRequestContext context) {
+                                 boolean osr, boolean transparent, Component canvas, CefRequestContext context) {
         if (getNativeRef("CefBrowser") == 0 && !isPending_) {
             try {
                 N_CreateBrowser(
@@ -174,8 +164,8 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
      * Create a new browser as dev tools
      */
     protected final void createDevTools(CefBrowser_N parent, CefClientHandler clientHandler,
-            long windowHandle, boolean osr, boolean transparent, Component canvas,
-            Point inspectAt) {
+                                        long windowHandle, boolean osr, boolean transparent, Component canvas,
+                                        Point inspectAt) {
         if (getNativeRef("CefBrowser") == 0 && !isPending_) {
             try {
                 isPending_ = N_CreateDevTools(
@@ -491,8 +481,8 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
 
     @Override
     public void runFileDialog(FileDialogMode mode, String title, String defaultFilePath,
-            Vector<String> acceptFilters, int selectedAcceptFilter,
-            CefRunFileDialogCallback callback) {
+                              Vector<String> acceptFilters, int selectedAcceptFilter,
+                              CefRunFileDialogCallback callback) {
         try {
             N_RunFileDialog(
                     mode, title, defaultFilePath, acceptFilters, selectedAcceptFilter, callback);
@@ -569,7 +559,8 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
 
     /**
      * Notify that the browser was resized.
-     * @param width The new width of the browser
+     *
+     * @param width  The new width of the browser
      * @param height The new height of the browser
      */
     protected final void wasResized(int width, int height) {
@@ -593,6 +584,7 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
 
     /**
      * Send a key event.
+     *
      * @param e The event to send.
      */
     protected final void sendKeyEvent(KeyEvent e) {
@@ -605,6 +597,7 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
 
     /**
      * Send a mouse event.
+     *
      * @param e The event to send.
      */
     protected final void sendMouseEvent(MouseEvent e) {
@@ -617,6 +610,7 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
 
     /**
      * Send a mouse wheel event.
+     *
      * @param e The event to send.
      */
     protected final void sendMouseWheelEvent(MouseWheelEvent e) {
@@ -752,66 +746,120 @@ public abstract class CefBrowser_N extends CefNativeAdapter implements CefBrowse
     }
 
     private final native boolean N_CreateBrowser(CefClientHandler clientHandler, long windowHandle,
-            String url, boolean osr, boolean transparent, Component canvas,
-            CefRequestContext context);
+                                                 String url, boolean osr, boolean transparent, Component canvas,
+                                                 CefRequestContext context);
+
     private final native boolean N_CreateDevTools(CefBrowser parent, CefClientHandler clientHandler,
-            long windowHandle, boolean osr, boolean transparent, Component canvas, Point inspectAt);
+                                                  long windowHandle, boolean osr, boolean transparent, Component canvas, Point inspectAt);
+
     private final native long N_GetWindowHandle(long surfaceHandle);
+
     private final native boolean N_CanGoBack();
+
     private final native void N_GoBack();
+
     private final native boolean N_CanGoForward();
+
     private final native void N_GoForward();
+
     private final native boolean N_IsLoading();
+
     private final native void N_Reload();
+
     private final native void N_ReloadIgnoreCache();
+
     private final native void N_StopLoad();
+
     private final native int N_GetIdentifier();
+
     private final native CefFrame N_GetMainFrame();
+
     private final native CefFrame N_GetFocusedFrame();
+
     private final native CefFrame N_GetFrame(long identifier);
+
     private final native CefFrame N_GetFrame2(String name);
+
     private final native Vector<Long> N_GetFrameIdentifiers();
+
     private final native Vector<String> N_GetFrameNames();
+
     private final native int N_GetFrameCount();
+
     private final native boolean N_IsPopup();
+
     private final native boolean N_HasDocument();
+
     private final native void N_ViewSource();
+
     private final native void N_GetSource(CefStringVisitor visitor);
+
     private final native void N_GetText(CefStringVisitor visitor);
+
     private final native void N_LoadRequest(CefRequest request);
+
     private final native void N_LoadURL(String url);
+
     private final native void N_ExecuteJavaScript(String code, String url, int line);
+
     private final native String N_GetURL();
+
     private final native void N_Close(boolean force);
+
     private final native void N_SetFocus(boolean enable);
+
     private final native void N_SetWindowVisibility(boolean visible);
+
     private final native double N_GetZoomLevel();
+
     private final native void N_SetZoomLevel(double zoomLevel);
+
     private final native void N_RunFileDialog(FileDialogMode mode, String title,
-            String defaultFilePath, Vector<String> acceptFilters, int selectedAcceptFilter,
-            CefRunFileDialogCallback callback);
+                                              String defaultFilePath, Vector<String> acceptFilters, int selectedAcceptFilter,
+                                              CefRunFileDialogCallback callback);
+
     private final native void N_StartDownload(String url);
+
     private final native void N_Print();
+
     private final native void N_PrintToPDF(
             String path, CefPdfPrintSettings settings, CefPdfPrintCallback callback);
+
     private final native void N_Find(
             String searchText, boolean forward, boolean matchCase, boolean findNext);
+
     private final native void N_StopFinding(boolean clearSelection);
+
     private final native void N_CloseDevTools();
+
     private final native void N_ReplaceMisspelling(String word);
+
     private final native void N_WasResized(int width, int height);
+
     private final native void N_Invalidate();
+
     private final native void N_SendKeyEvent(KeyEvent e);
+
     private final native void N_SendMouseEvent(MouseEvent e);
+
     private final native void N_SendMouseWheelEvent(MouseWheelEvent e);
+
     private final native void N_DragTargetDragEnter(
             CefDragData dragData, Point pos, int modifiers, int allowed_ops);
+
     private final native void N_DragTargetDragOver(Point pos, int modifiers, int allowed_ops);
+
     private final native void N_DragTargetDragLeave();
+
     private final native void N_DragTargetDrop(Point pos, int modifiers);
+
     private final native void N_DragSourceEndedAt(Point pos, int operation);
+
     private final native void N_DragSourceSystemDragEnded();
+
     private final native void N_UpdateUI(Rectangle contentRect, Rectangle browserRect);
+
     private final native void N_SetParent(long windowHandle, Component canvas);
+
     private final native void N_NotifyMoveOrResizeStarted();
 }

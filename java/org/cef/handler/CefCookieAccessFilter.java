@@ -21,12 +21,12 @@ public interface CefCookieAccessFilter {
      * workers or CefURLRequest.
      *
      * @param browser The corresponding browser.
-     * @param frame The frame generating the event. Instance only valid within the scope of this
-     *         method.
+     * @param frame   The frame generating the event. Instance only valid within the scope of this
+     *                method.
      * @param request The request itself. Cannot be modified in this callback. Instance only valid
-     *         within the scope of this method.
-     * @param cookie The cookie that will be sent with the request. Cannot be modified in this
-     *         callback. Instance only valid within the scope of this method.
+     *                within the scope of this method.
+     * @param cookie  The cookie that will be sent with the request. Cannot be modified in this
+     *                callback. Instance only valid within the scope of this method.
      * @return True if the cookie can be sent or false otherwise.
      */
     boolean canSendCookie(CefBrowser browser, CefFrame frame, CefRequest request, CefCookie cookie);
@@ -36,17 +36,17 @@ public interface CefCookieAccessFilter {
      * values represent the source of the request, and may be null for requests originating from
      * service workers or CefURLRequest.
      *
-     * @param browser The corresponding browser.
-     * @param frame The frame generating the event. Instance only valid within the scope of this
-     *         method.
-     * @param request The request itself. Cannot be modified in this callback. Instance only valid
-     *         within the scope of this method.
+     * @param browser  The corresponding browser.
+     * @param frame    The frame generating the event. Instance only valid within the scope of this
+     *                 method.
+     * @param request  The request itself. Cannot be modified in this callback. Instance only valid
+     *                 within the scope of this method.
      * @param response The request response. Cannot be modified in this callback. Instance only
-     *         valid within the scope of this method.
-     * @param cookie The cookie that will be sent with the request. Cannot be modified in this
-     *         callback. Instance only valid within the scope of this method.
+     *                 valid within the scope of this method.
+     * @param cookie   The cookie that will be sent with the request. Cannot be modified in this
+     *                 callback. Instance only valid within the scope of this method.
      * @return True if the cookie can be saved or false otherwise.
      */
     boolean canSaveCookie(CefBrowser browser, CefFrame frame, CefRequest request,
-            CefResponse response, CefCookie cookie);
+                          CefResponse response, CefCookie cookie);
 }

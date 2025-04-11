@@ -7,8 +7,7 @@ package org.cef.handler;
 import org.cef.browser.CefBrowser;
 import org.cef.callback.CefDragData;
 
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.nio.ByteBuffer;
 
 /**
@@ -33,14 +32,17 @@ public abstract class CefRenderHandlerAdapter implements CefRenderHandler {
     }
 
     @Override
-    public void onPopupShow(CefBrowser browser, boolean show) {}
+    public void onPopupShow(CefBrowser browser, boolean show) {
+    }
 
     @Override
-    public void onPopupSize(CefBrowser browser, Rectangle size) {}
+    public void onPopupSize(CefBrowser browser, Rectangle size) {
+    }
 
     @Override
     public void onPaint(CefBrowser browser, boolean popup, Rectangle[] dirtyRects,
-            ByteBuffer buffer, int width, int height) {}
+                        ByteBuffer buffer, int width, int height) {
+    }
 
     @Override
     public boolean onCursorChange(CefBrowser browser, int cursorType) {
@@ -53,5 +55,6 @@ public abstract class CefRenderHandlerAdapter implements CefRenderHandler {
     }
 
     @Override
-    public void updateDragCursor(CefBrowser browser, int operation) {}
+    public void updateDragCursor(CefBrowser browser, int operation) {
+    }
 }

@@ -8,8 +8,6 @@ import org.cef.callback.CefCompletionCallback;
 import org.cef.callback.CefCookieVisitor;
 import org.cef.callback.CefNative;
 
-import java.util.Vector;
-
 class CefCookieManager_N extends CefCookieManager implements CefNative {
     // Used internally to store a pointer to the CEF object.
     private long N_CefHandle = 0;
@@ -106,11 +104,17 @@ class CefCookieManager_N extends CefCookieManager implements CefNative {
     }
 
     private final static native CefCookieManager_N N_GetGlobalManager();
+
     private final native void N_Dispose(long self);
+
     private final native boolean N_VisitAllCookies(long self, CefCookieVisitor visitor);
+
     private final native boolean N_VisitUrlCookies(
             long self, String url, boolean includeHttpOnly, CefCookieVisitor visitor);
+
     private final native boolean N_SetCookie(long self, String url, CefCookie cookie);
+
     private final native boolean N_DeleteCookies(long self, String url, String cookieName);
+
     private final native boolean N_FlushStore(long self, CefCompletionCallback handler);
 }

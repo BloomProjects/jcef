@@ -15,36 +15,41 @@ import org.cef.browser.CefFrame;
 public interface CefDisplayHandler {
     /**
      * Browser address changed.
+     *
      * @param browser The browser generating the event.
-     * @param frame The frame generating the event.
-     * @param url The new address.
+     * @param frame   The frame generating the event.
+     * @param url     The new address.
      */
     public void onAddressChange(CefBrowser browser, CefFrame frame, String url);
 
     /**
      * Browser title changed.
+     *
      * @param browser The browser generating the event.
-     * @param title The new title.
+     * @param title   The new title.
      */
     public void onTitleChange(CefBrowser browser, String title);
 
     /**
      * About to display a tooltip.
+     *
      * @param browser The browser generating the event.
-     * @param text Contains the text that will be displayed in the tooltip.
+     * @param text    Contains the text that will be displayed in the tooltip.
      * @return true to handle the tooltip display yourself.
      */
     public boolean onTooltip(CefBrowser browser, String text);
 
     /**
      * Received a status message.
+     *
      * @param browser The browser generating the event.
-     * @param value Contains the text that will be displayed in the status message.
+     * @param value   Contains the text that will be displayed in the status message.
      */
     public void onStatusMessage(CefBrowser browser, String value);
 
     /**
      * Display a console message.
+     *
      * @param browser The browser generating the event.
      * @param level
      * @param message
@@ -53,11 +58,12 @@ public interface CefDisplayHandler {
      * @return true to stop the message from being output to the console.
      */
     public boolean onConsoleMessage(CefBrowser browser, CefSettings.LogSeverity level,
-            String message, String source, int line);
+                                    String message, String source, int line);
 
     /**
      * Handle cursor changes.
-     * @param browser The browser generating the event.
+     *
+     * @param browser    The browser generating the event.
      * @param cursorType The new cursor type.
      * @return true if the cursor change was handled.
      */

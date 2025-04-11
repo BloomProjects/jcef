@@ -250,6 +250,7 @@ public interface CefLoadHandler {
         ERR_DNS_REQUEST_CANCELLED(-810);
 
         static private final Map<Integer, ErrorCode> CODES = new HashMap<>();
+
         static {
             for (ErrorCode ec : ErrorCode.values()) {
                 // only put first value into map (so enums listed first have
@@ -269,6 +270,7 @@ public interface CefLoadHandler {
         /**
          * Gets the underlying native chrome embedded framework error code value
          * as an integer.
+         *
          * @return The error code as an integer.
          */
         public int getCode() {
@@ -278,6 +280,7 @@ public interface CefLoadHandler {
         /**
          * Finds the ErrorCode by the native chrome embedded framework integer-based
          * error code value.
+         *
          * @param code The integer-based raw error code.
          * @return The Java enum mapped to that error code or null if none was found.
          */
@@ -291,9 +294,9 @@ public interface CefLoadHandler {
      * loading is initiated either programmatically or by user action, and once when loading is
      * terminated due to completion, cancellation of failure.
      *
-     * @param browser The corresponding browser.
-     * @param isLoading true if it is loading.
-     * @param canGoBack true if you can navigate back.
+     * @param browser      The corresponding browser.
+     * @param isLoading    true if it is loading.
+     * @param canGoBack    true if you can navigate back.
      * @param canGoForward true if you can navigate forward.
      */
     public void onLoadingStateChange(
@@ -306,9 +309,9 @@ public interface CefLoadHandler {
      * the load request for that frame fails. For notification of overall browser load status use
      * onLoadingStateChange instead.
      *
-     * @param browser The corresponding browser.
-     * @param frame The frame generating the event. Instance only valid within the scope of this
-     *         method.
+     * @param browser        The corresponding browser.
+     * @param frame          The frame generating the event. Instance only valid within the scope of this
+     *                       method.
      * @param transitionType The transition type.
      */
     public void onLoadStart(CefBrowser browser, CefFrame frame, TransitionType transitionType);
@@ -319,9 +322,9 @@ public interface CefLoadHandler {
      * loading after the main frame load has ended. This method will always be called for all frames
      * irrespective of whether the request completes successfully.
      *
-     * @param browser The corresponding browser.
-     * @param frame The frame generating the event. Instance only valid within the scope of this
-     *         method.
+     * @param browser        The corresponding browser.
+     * @param frame          The frame generating the event. Instance only valid within the scope of this
+     *                       method.
      * @param httpStatusCode The status code of the load.
      */
     public void onLoadEnd(CefBrowser browser, CefFrame frame, int httpStatusCode);
@@ -329,13 +332,13 @@ public interface CefLoadHandler {
     /**
      * Called when the resource load for a navigation fails or is canceled.
      *
-     * @param browser The corresponding browser.
-     * @param frame The frame generating the event. Instance only valid within the scope of this
-     *         method.
+     * @param browser   The corresponding browser.
+     * @param frame     The frame generating the event. Instance only valid within the scope of this
+     *                  method.
      * @param errorCode The error code number.
      * @param errorText The error text.
      * @param failedUrl The URL that failed to load.
      */
     public void onLoadError(CefBrowser browser, CefFrame frame, ErrorCode errorCode,
-            String errorText, String failedUrl);
+                            String errorText, String failedUrl);
 }

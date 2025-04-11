@@ -10,7 +10,7 @@ import org.cef.callback.CefPrintDialogCallback;
 import org.cef.callback.CefPrintJobCallback;
 import org.cef.misc.CefPrintSettings;
 
-import java.awt.Dimension;
+import java.awt.*;
 
 /**
  * An abstract adapter class for receiving print events on Linux.
@@ -38,7 +38,7 @@ public abstract class CefPrintHandlerAdapter extends CefNativeAdapter implements
 
     @Override
     public boolean onPrintJob(CefBrowser browser, String documentName, String pdfFilePath,
-            CefPrintJobCallback callback) {
+                              CefPrintJobCallback callback) {
         // The default implementation does nothing
         return false;
     }

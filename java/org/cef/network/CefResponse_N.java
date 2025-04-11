@@ -169,19 +169,33 @@ class CefResponse_N extends CefResponse implements CefNative {
     }
 
     private final native static CefResponse_N N_Create();
+
     private final native void N_Dispose(long self);
+
     private final native boolean N_IsReadOnly(long self);
+
     private final native ErrorCode N_GetError(long self);
+
     private final native void N_SetError(long self, ErrorCode errorCode);
+
     private final native int N_GetStatus(long self);
+
     private final native void N_SetStatus(long self, int status);
+
     private final native String N_GetStatusText(long self);
+
     private final native void N_SetStatusText(long self, String statusText);
+
     private final native String N_GetMimeType(long self);
+
     private final native void N_SetMimeType(long self, String mimeType);
+
     private final native String N_GetHeaderByName(long self, String name);
+
     private final native void N_SetHeaderByName(
             long self, String name, String value, boolean overwrite);
+
     private final native void N_GetHeaderMap(long self, Map<String, String> headerMap);
+
     private final native void N_SetHeaderMap(long self, Map<String, String> headerMap);
 }

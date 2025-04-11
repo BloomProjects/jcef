@@ -17,7 +17,8 @@ import java.util.Set;
  */
 public abstract class CefResponse {
     // This CTOR can't be called directly. Call method create() instead.
-    CefResponse() {}
+    CefResponse() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -85,6 +86,7 @@ public abstract class CefResponse {
     /**
      * Get the value for the specified response header field. Use getHeaderMap instead if there
      * might be multiple values.
+     *
      * @param name The header name.
      * @return The header value.
      */
@@ -92,10 +94,11 @@ public abstract class CefResponse {
 
     /**
      * Set the value for the specified response header field.
-     * @param name The header name.
-     * @param value The header value.
+     *
+     * @param name      The header name.
+     * @param value     The header value.
      * @param overwrite If true any existing values will be replaced with the new value. If false
-     *         any existing values will not be overwritten.
+     *                  any existing values will not be overwritten.
      */
     public abstract void setHeaderByName(String name, String value, boolean overwrite);
 

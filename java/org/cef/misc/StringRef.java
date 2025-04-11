@@ -10,7 +10,8 @@ package org.cef.misc;
 public class StringRef {
     private String value_;
 
-    public StringRef() {}
+    public StringRef() {
+    }
 
     public StringRef(String value) {
         value_ = value;

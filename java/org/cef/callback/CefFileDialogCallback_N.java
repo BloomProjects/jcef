@@ -7,7 +7,8 @@ package org.cef.callback;
 import java.util.Vector;
 
 class CefFileDialogCallback_N extends CefNativeAdapter implements CefFileDialogCallback {
-    CefFileDialogCallback_N() {}
+    CefFileDialogCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -34,5 +35,6 @@ class CefFileDialogCallback_N extends CefNativeAdapter implements CefFileDialogC
     }
 
     private final native void N_Continue(long self, Vector<String> filePaths);
+
     private final native void N_Cancel(long self);
 }

@@ -5,7 +5,8 @@
 package org.cef.callback;
 
 class CefDownloadItemCallback_N extends CefNativeAdapter implements CefDownloadItemCallback {
-    CefDownloadItemCallback_N() {}
+    CefDownloadItemCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -45,7 +46,10 @@ class CefDownloadItemCallback_N extends CefNativeAdapter implements CefDownloadI
     }
 
     private final native void N_Dispose(long self);
+
     private final native void N_Cancel(long self);
+
     private final native void N_Pause(long self);
+
     private final native void N_Resume(long self);
 }

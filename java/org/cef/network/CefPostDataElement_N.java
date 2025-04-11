@@ -120,13 +120,22 @@ class CefPostDataElement_N extends CefPostDataElement implements CefNative {
     }
 
     private final native static CefPostDataElement_N N_Create();
+
     private final native void N_Dispose(long self);
+
     private final native boolean N_IsReadOnly(long self);
+
     private final native void N_SetToEmpty(long self);
+
     private final native void N_SetToFile(long self, String fileName);
+
     private final native void N_SetToBytes(long self, int size, byte[] bytes);
+
     private final native Type N_GetType(long self);
+
     private final native String N_GetFile(long self);
+
     private final native int N_GetBytesCount(long self);
+
     private final native int N_GetBytes(long self, int size, byte[] bytes);
 }

@@ -5,7 +5,8 @@
 package org.cef.callback;
 
 class CefCallback_N extends CefNativeAdapter implements CefCallback {
-    CefCallback_N() {}
+    CefCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -32,5 +33,6 @@ class CefCallback_N extends CefNativeAdapter implements CefCallback {
     }
 
     private final native void N_Continue(long self);
+
     private final native void N_Cancel(long self);
 }

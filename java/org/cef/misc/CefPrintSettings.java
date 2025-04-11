@@ -4,8 +4,7 @@
 
 package org.cef.misc;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.util.Vector;
 
 /**
@@ -50,7 +49,8 @@ public abstract class CefPrintSettings {
     }
 
     // This CTOR can't be called directly. Call method create() instead.
-    CefPrintSettings() {}
+    CefPrintSettings() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -89,7 +89,6 @@ public abstract class CefPrintSettings {
 
     /**
      * Returns true if the orientation is landscape.
-     *
      */
     public abstract boolean isLandscape();
 
@@ -99,7 +98,7 @@ public abstract class CefPrintSettings {
      * to false on those platforms to avoid double flipping.
      */
     public abstract void setPrinterPrintableArea(Dimension physical_size_device_units,
-            Rectangle printable_area_device_units, boolean landscape_needs_flip);
+                                                 Rectangle printable_area_device_units, boolean landscape_needs_flip);
 
     /**
      * Set the device name.

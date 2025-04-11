@@ -244,28 +244,51 @@ class CefDragData_N extends CefDragData implements CefNative {
     }
 
     private final native static CefDragData_N N_Create();
+
     private final native CefDragData_N N_Clone(long self);
+
     private final native void N_Dispose(long self);
+
     private final native boolean N_IsReadOnly(long self);
+
     private final native boolean N_IsLink(long self);
+
     private final native boolean N_IsFragment(long self);
+
     private final native boolean N_IsFile(long self);
+
     private final native String N_GetLinkURL(long self);
+
     private final native String N_GetLinkTitle(long self);
+
     private final native String N_GetLinkMetadata(long self);
+
     private final native String N_GetFragmentText(long self);
+
     private final native String N_GetFragmentHtml(long self);
+
     private final native String N_GetFragmentBaseURL(long self);
+
     private final native int N_GetFileContents(long self, OutputStream writer);
+
     private final native String N_GetFileName(long self);
+
     private final native boolean N_GetFileNames(long self, Vector<String> names);
+
     private final native void N_SetLinkURL(long self, String url);
+
     private final native void N_SetLinkTitle(long self, String title);
+
     private final native void N_SetLinkMetadata(long self, String data);
+
     private final native void N_SetFragmentText(long self, String text);
+
     private final native void N_SetFragmentHtml(long self, String html);
+
     private final native void N_SetFragmentBaseURL(long self, String baseUrl);
+
     private final native void N_ResetFileContents(long self);
+
     private final native void N_AddFile(long self, String path, String displayName);
 
     @Override

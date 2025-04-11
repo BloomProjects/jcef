@@ -86,13 +86,13 @@ public class CefPdfPrintSettings {
      * HTML template for the print header. Only displayed if
      * |display_header_footer| is true (1). Should be valid HTML markup with
      * the following classes used to inject printing values into them:
-     *
+     * <p>
      * - date: formatted print date
      * - title: document title
      * - url: document location
      * - pageNumber: current page number
      * - totalPages: total pages in the document
-     *
+     * <p>
      * For example, "<span class=title></span>" would generate a span containing
      * the title.
      */
@@ -105,7 +105,8 @@ public class CefPdfPrintSettings {
      */
     public String footer_template;
 
-    public CefPdfPrintSettings() {}
+    public CefPdfPrintSettings() {
+    }
 
     @Override
     public CefPdfPrintSettings clone() {

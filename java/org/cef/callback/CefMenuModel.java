@@ -301,14 +301,14 @@ public interface CefMenuModel {
      * be any key or character value. Returns true on success.
      */
     boolean setAccelerator(int command_id, int key_code, boolean shift_pressed,
-            boolean ctrl_pressed, boolean alt_pressed);
+                           boolean ctrl_pressed, boolean alt_pressed);
 
     /**
      * Set the keyboard accelerator at the specified |index|. |key_code| can be
      * any key or character value. Returns true on success.
      */
     boolean setAcceleratorAt(int index, int key_code, boolean shift_pressed, boolean ctrl_pressed,
-            boolean alt_pressed);
+                             boolean alt_pressed);
 
     /**
      * Remove the keyboard accelerator for the specified |command_id|. Returns
@@ -327,12 +327,12 @@ public interface CefMenuModel {
      * true on success.
      */
     boolean getAccelerator(int command_id, IntRef key_code, BoolRef shift_pressed,
-            BoolRef ctrl_pressed, BoolRef alt_pressed);
+                           BoolRef ctrl_pressed, BoolRef alt_pressed);
 
     /**
      * Retrieves the keyboard accelerator for the specified |index|. Returns true
      * on success.
      */
     boolean getAcceleratorAt(int index, IntRef key_code, BoolRef shift_pressed,
-            BoolRef ctrl_pressed, BoolRef alt_pressed);
+                             BoolRef ctrl_pressed, BoolRef alt_pressed);
 }

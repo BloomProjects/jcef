@@ -19,6 +19,7 @@ public interface CefAppHandler {
      * the browser process. Be cautious when using this method to modify
      * command-line arguments for non-browser processes as this may result in
      * undefined behavior including crashes.
+     *
      * @param process_type type of process (empty for browser process).
      * @param command_line values of the command line.
      */
@@ -31,6 +32,7 @@ public interface CefAppHandler {
      * want to proceed with the default behavior of the native system, return
      * false. If you want to abort the terminate or if you want to implement your
      * own shutdown sequence return true and do the cleanup on your own.
+     *
      * @return false to proceed with the default behavior, true to abort
      * terminate.
      */
@@ -39,7 +41,7 @@ public interface CefAppHandler {
     /**
      * Implement this method to get state changes of the CefApp.
      * See {@link CefAppState} for a complete list of possible states.
-     *
+     * <p>
      * For example, this method can be used e.g. to get informed if CefApp has
      * completed its initialization or its shutdown process.
      *
@@ -56,6 +58,7 @@ public interface CefAppHandler {
     public void onRegisterCustomSchemes(CefSchemeRegistrar registrar);
 
     // Inherited of CefBrowserProcessHandler
+
     /**
      * Called on the browser process UI thread immediately after the CEF context
      * has been initialized.

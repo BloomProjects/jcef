@@ -9,37 +9,12 @@ import org.cef.OS;
 import org.cef.handler.CefWindowHandler;
 import org.cef.handler.CefWindowHandlerAdapter;
 
-import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.HierarchyBoundsListener;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.HierarchyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.Date;
 import java.util.concurrent.CompletableFuture;
-
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.MenuSelectionManager;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
-import javax.swing.ToolTipManager;
 
 /**
  * This class represents a windowed rendered browser.
@@ -92,7 +67,7 @@ class CefBrowserWr extends CefBrowser_N {
 
         @Override
         public void onMouseEvent(CefBrowser browser, int event, final int screenX,
-                final int screenY, final int modifier, final int button) {
+                                 final int screenY, final int modifier, final int button) {
             final Point pt = new Point(screenX, screenY);
             if (event == MouseEvent.MOUSE_MOVED) {
                 // Remove mouse-moved events if the position of the cursor hasn't
@@ -152,12 +127,12 @@ class CefBrowserWr extends CefBrowser_N {
                     if (currTime > nextClick[idx]) {
                         nextClick[idx] = currTime
                                 + (Integer) Toolkit.getDefaultToolkit().getDesktopProperty(
-                                        "awt.multiClickInterval");
+                                "awt.multiClickInterval");
                         clickCnt[idx] = 1;
                     } else {
                         clickCnt[idx]++;
                     }
-                // FALL THRU
+                    // FALL THRU
                 case MouseEvent.MOUSE_RELEASED:
                     return clickCnt[idx];
                 default:
@@ -172,7 +147,7 @@ class CefBrowserWr extends CefBrowser_N {
 
     @SuppressWarnings("serial")
     private CefBrowserWr(CefClient client, String url, CefRequestContext context,
-            CefBrowserWr parent, Point inspectAt) {
+                         CefBrowserWr parent, Point inspectAt) {
         super(client, url, context, parent, inspectAt);
         delayedUpdate_.setRepeats(false);
 
@@ -276,6 +251,7 @@ class CefBrowserWr extends CefBrowser_N {
             public void ancestorResized(HierarchyEvent e) {
                 doUpdate();
             }
+
             @Override
             public void ancestorMoved(HierarchyEvent e) {
                 doUpdate();
@@ -317,7 +293,7 @@ class CefBrowserWr extends CefBrowser_N {
 
     @Override
     protected CefBrowser_N createDevToolsBrowser(CefClient client, String url,
-            CefRequestContext context, CefBrowser_N parent, Point inspectAt) {
+                                                 CefRequestContext context, CefBrowser_N parent, Point inspectAt) {
         return new CefBrowserWr(client, url, context, (CefBrowserWr) this, inspectAt);
     }
 

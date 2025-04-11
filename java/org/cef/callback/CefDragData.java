@@ -27,7 +27,8 @@ public abstract class CefDragData {
     }
 
     // This CTOR can't be called directly. Call method create() instead.
-    CefDragData() {}
+    CefDragData() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -54,6 +55,7 @@ public abstract class CefDragData {
 
     /**
      * Test if the object is set to read-only.
+     *
      * @return true if this object is read-only.
      */
     public abstract boolean isReadOnly();
@@ -112,7 +114,7 @@ public abstract class CefDragData {
      *
      * @param writer Writes the contents into this object.
      * @return The number of bytes sent to writer. If writer is NULL the size of
-     *   the file contents in bytes is returned.
+     * the file contents in bytes is returned.
      */
     public abstract int getFileContents(OutputStream writer);
 
@@ -129,36 +131,42 @@ public abstract class CefDragData {
 
     /**
      * Set the link URL that is being dragged.
+     *
      * @param url The link URL to be set.
      */
     public abstract void setLinkURL(String url);
 
     /**
      * Set the title associated with the link being dragged.
+     *
      * @param title The tile associated with the link.
      */
     public abstract void setLinkTitle(String title);
 
     /**
      * Set the metadata associated with the link being dragged.
+     *
      * @param data The metadata associated with the link.
      */
     public abstract void setLinkMetadata(String data);
 
     /**
      * Set the plain text fragment that is being dragged.
+     *
      * @param text The plain text fragment to be set.
      */
     public abstract void setFragmentText(String text);
 
     /**
      * Set the text/html fragment that is being dragged.
+     *
      * @param html The html fragment to be set.
      */
     public abstract void setFragmentHtml(String html);
 
     /**
      * Set the base URL that the fragment came from.
+     *
      * @param baseUrl The base URL to be set.
      */
     public abstract void setFragmentBaseURL(String baseUrl);
@@ -172,7 +180,8 @@ public abstract class CefDragData {
 
     /**
      * Add a file that is being dragged into the webview.
-     * @param path The file and path to be set.
+     *
+     * @param path        The file and path to be set.
      * @param displayName The name to be displayed.
      */
     public abstract void addFile(String path, String displayName);

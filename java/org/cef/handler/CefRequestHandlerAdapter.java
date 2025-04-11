@@ -11,7 +11,6 @@ import org.cef.callback.CefCallback;
 import org.cef.handler.CefLoadHandler.ErrorCode;
 import org.cef.misc.BoolRef;
 import org.cef.network.CefRequest;
-import org.cef.network.CefURLRequest;
 
 /**
  * An abstract adapter class for receiving browser request events.
@@ -21,7 +20,7 @@ import org.cef.network.CefURLRequest;
 public abstract class CefRequestHandlerAdapter implements CefRequestHandler {
     @Override
     public boolean onBeforeBrowse(CefBrowser browser, CefFrame frame, CefRequest request,
-            boolean user_gesture, boolean is_redirect) {
+                                  boolean user_gesture, boolean is_redirect) {
         return false;
     }
 
@@ -33,14 +32,14 @@ public abstract class CefRequestHandlerAdapter implements CefRequestHandler {
 
     @Override
     public CefResourceRequestHandler getResourceRequestHandler(CefBrowser browser, CefFrame frame,
-            CefRequest request, boolean isNavigation, boolean isDownload, String requestInitiator,
-            BoolRef disableDefaultHandling) {
+                                                               CefRequest request, boolean isNavigation, boolean isDownload, String requestInitiator,
+                                                               BoolRef disableDefaultHandling) {
         return null;
     }
 
     @Override
     public boolean getAuthCredentials(CefBrowser browser, String origin_url, boolean isProxy,
-            String host, int port, String realm, String scheme, CefAuthCallback callback) {
+                                      String host, int port, String realm, String scheme, CefAuthCallback callback) {
         return false;
     }
 
@@ -51,5 +50,6 @@ public abstract class CefRequestHandlerAdapter implements CefRequestHandler {
     }
 
     @Override
-    public void onRenderProcessTerminated(CefBrowser browser, TerminationStatus status) {}
+    public void onRenderProcessTerminated(CefBrowser browser, TerminationStatus status) {
+    }
 }

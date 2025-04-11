@@ -23,7 +23,8 @@ import org.cef.handler.CefRequestContextHandler;
  */
 public abstract class CefRequestContext {
     // This CTOR can't be called directly. Call method create() instead.
-    CefRequestContext() {}
+    CefRequestContext() {
+    }
 
     /**
      * Returns the global context object.

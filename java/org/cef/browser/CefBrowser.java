@@ -14,8 +14,7 @@ import org.cef.handler.CefWindowHandler;
 import org.cef.misc.CefPdfPrintSettings;
 import org.cef.network.CefRequest;
 
-import java.awt.Component;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
@@ -33,24 +32,28 @@ public interface CefBrowser {
 
     /**
      * Get the underlying UI component (e.g. java.awt.Canvas).
+     *
      * @return The underlying UI component.
      */
     public Component getUIComponent();
 
     /**
      * Get the client associated with this browser.
+     *
      * @return The browser client.
      */
     public CefClient getClient();
 
     /**
      * Get an implementation of CefRenderHandler if any.
+     *
      * @return An instance of CefRenderHandler or null.
      */
     public CefRenderHandler getRenderHandler();
 
     /**
      * Get an implementation of CefWindowHandler if any.
+     *
      * @return An instance of CefWindowHandler or null.
      */
     public CefWindowHandler getWindowHandler();
@@ -61,6 +64,7 @@ public interface CefBrowser {
 
     /**
      * Tests if the browser can navigate backwards.
+     *
      * @return true if the browser can navigate backwards.
      */
     public boolean canGoBack();
@@ -72,6 +76,7 @@ public interface CefBrowser {
 
     /**
      * Tests if the browser can navigate forwards.
+     *
      * @return true if the browser can navigate forwards.
      */
     public boolean canGoForward();
@@ -83,6 +88,7 @@ public interface CefBrowser {
 
     /**
      * Tests if the browser is currently loading.
+     *
      * @return true if the browser is currently loading.
      */
     public boolean isLoading();
@@ -104,24 +110,28 @@ public interface CefBrowser {
 
     /**
      * Returns the unique browser identifier.
+     *
      * @return The browser identifier
      */
     public int getIdentifier();
 
     /**
      * Returns the main (top-level) frame for the browser window.
+     *
      * @return The main frame
      */
     public CefFrame getMainFrame();
 
     /**
      * Returns the focused frame for the browser window.
+     *
      * @return The focused frame
      */
     public CefFrame getFocusedFrame();
 
     /**
      * Returns the frame with the specified identifier, or NULL if not found.
+     *
      * @param identifier The unique frame identifier
      * @return The frame or NULL if not found
      */
@@ -129,6 +139,7 @@ public interface CefBrowser {
 
     /**
      * Returns the frame with the specified name, or NULL if not found.
+     *
      * @param name The specified name
      * @return The frame or NULL if not found
      */
@@ -136,30 +147,35 @@ public interface CefBrowser {
 
     /**
      * Returns the identifiers of all existing frames.
+     *
      * @return All identifiers of existing frames.
      */
     public Vector<Long> getFrameIdentifiers();
 
     /**
      * Returns the names of all existing frames.
+     *
      * @return The names of all existing frames.
      */
     public Vector<String> getFrameNames();
 
     /**
      * Returns the number of frames that currently exist.
+     *
      * @return The number of frames
      */
     public int getFrameCount();
 
     /**
      * Tests if the window is a popup window.
+     *
      * @return true if the window is a popup window.
      */
     public boolean isPopup();
 
     /**
      * Tests if a document has been loaded in the browser.
+     *
      * @return true if a document has been loaded in the browser.
      */
     public boolean hasDocument();
@@ -200,6 +216,7 @@ public interface CefBrowser {
 
     /**
      * Load the specified URL in the main frame.
+     *
      * @param url The URL to load.
      */
     public void loadURL(String url);
@@ -212,13 +229,14 @@ public interface CefBrowser {
      * reporting.
      *
      * @param code The code to be executed.
-     * @param url The URL where the script in question can be found.
+     * @param url  The URL where the script in question can be found.
      * @param line The base line number to use for error reporting.
      */
     public void executeJavaScript(String code, String url, int line);
 
     /**
      * Emits the URL currently loaded in this frame.
+     *
      * @return the URL currently loaded in this frame.
      */
     public String getURL();
@@ -227,6 +245,7 @@ public interface CefBrowser {
 
     /**
      * Request that the browser close.
+     *
      * @param force force the close.
      */
     public void close(boolean force);
@@ -248,6 +267,7 @@ public interface CefBrowser {
 
     /**
      * Set or remove keyboard focus to/from the browser window.
+     *
      * @param enable set to true to give the focus to the browser
      **/
     public void setFocus(boolean enable);
@@ -255,12 +275,14 @@ public interface CefBrowser {
     /**
      * Set whether the window containing the browser is visible
      * (minimized/unminimized, app hidden/unhidden, etc). Only used on Mac OS X.
+     *
      * @param visible
      */
     public void setWindowVisibility(boolean visible);
 
     /**
      * Get the current zoom level. The default zoom level is 0.0.
+     *
      * @return The current zoom level.
      */
     public double getZoomLevel();
@@ -278,24 +300,24 @@ public interface CefBrowser {
      * pending at any given time.The dialog will be initiated asynchronously on
      * the UI thread.
      *
-     * @param mode represents the type of dialog to display.
-     * @param title  to be used for the dialog and may be empty to show the
-     * default title ("Open" or "Save" depending on the mode).
-     * @param defaultFilePath is the path with optional directory and/or file name
-     * component that should be initially selected in the dialog.
-     * @param acceptFilters are used to restrict the selectable file types and may
-     * any combination of (a) valid lower-cased MIME types (e.g. "text/*" or
-     * "image/*"), (b) individual file extensions (e.g. ".txt" or ".png"), or (c)
-     * combined description and file extension delimited using "|" and ";" (e.g.
-     * "Image Types|.png;.gif;.jpg").
+     * @param mode                 represents the type of dialog to display.
+     * @param title                to be used for the dialog and may be empty to show the
+     *                             default title ("Open" or "Save" depending on the mode).
+     * @param defaultFilePath      is the path with optional directory and/or file name
+     *                             component that should be initially selected in the dialog.
+     * @param acceptFilters        are used to restrict the selectable file types and may
+     *                             any combination of (a) valid lower-cased MIME types (e.g. "text/*" or
+     *                             "image/*"), (b) individual file extensions (e.g. ".txt" or ".png"), or (c)
+     *                             combined description and file extension delimited using "|" and ";" (e.g.
+     *                             "Image Types|.png;.gif;.jpg").
      * @param selectedAcceptFilter is the 0-based index of the filter that should
-     * be selected by default.
-     * @param callback will be executed after the dialog is dismissed or
-     * immediately if another dialog is already pending.
+     *                             be selected by default.
+     * @param callback             will be executed after the dialog is dismissed or
+     *                             immediately if another dialog is already pending.
      */
     public void runFileDialog(FileDialogMode mode, String title, String defaultFilePath,
-            Vector<String> acceptFilters, int selectedAcceptFilter,
-            CefRunFileDialogCallback callback);
+                              Vector<String> acceptFilters, int selectedAcceptFilter,
+                              CefRunFileDialogCallback callback);
 
     /**
      * Download the file at url using CefDownloadHandler.
@@ -312,10 +334,10 @@ public interface CefBrowser {
     /**
      * Print the current browser contents to a PDF.
      *
-     * @param path The path of the file to write to (will be overwritten if it
-     *      already exists).  Cannot be null.
+     * @param path     The path of the file to write to (will be overwritten if it
+     *                 already exists).  Cannot be null.
      * @param settings The pdf print settings to use.  If null then defaults
-     *      will be used.
+     *                 will be used.
      * @param callback Called when the pdf print job has completed.
      */
     public void printToPDF(String path, CefPdfPrintSettings settings, CefPdfPrintCallback callback);
@@ -324,14 +346,15 @@ public interface CefBrowser {
      * Search for some kind of text on the page.
      *
      * @param searchText to be searched for.
-     * @param forward indicates whether to search forward or backward within the page.
-     * @param matchCase indicates whether the search should be case-sensitive.
-     * @param findNext indicates whether this is the first request or a follow-up.
+     * @param forward    indicates whether to search forward or backward within the page.
+     * @param matchCase  indicates whether the search should be case-sensitive.
+     * @param findNext   indicates whether this is the first request or a follow-up.
      */
     public void find(String searchText, boolean forward, boolean matchCase, boolean findNext);
 
     /**
      * Cancel all searches that are currently going on.
+     *
      * @param clearSelection Set to true to reset selection.
      */
     public void stopFinding(boolean clearSelection);
@@ -374,8 +397,8 @@ public interface CefBrowser {
      * each row (ex. 800px with a scaling factor of 2)).
      *
      * @param nativeResolution whether to return an image at full native resolution (true)
-     *      or a scaled-down version whose width and height are equal to the logical size
-     *      of the screenshotted browser window
+     *                         or a scaled-down version whose width and height are equal to the logical size
+     *                         of the screenshotted browser window
      * @return the screenshot image
      * @throws UnsupportedOperationException if not supported
      */

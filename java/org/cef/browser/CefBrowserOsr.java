@@ -44,7 +44,7 @@ public class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
     }
 
     private CefBrowserOsr(CefClient client, String url, boolean transparent,
-            CefRequestContext context, CefBrowserOsr parent, Point inspectAt) {
+                          CefRequestContext context, CefBrowserOsr parent, Point inspectAt) {
         super(client, url, context, parent, inspectAt);
         isTransparent_ = transparent;
     }
@@ -68,7 +68,7 @@ public class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
 
     @Override
     protected CefBrowser_N createDevToolsBrowser(CefClient client, String url,
-            CefRequestContext context, CefBrowser_N parent, Point inspectAt) {
+                                                 CefRequestContext context, CefBrowser_N parent, Point inspectAt) {
         return null;
     }
 
@@ -85,10 +85,12 @@ public class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
     }
 
     @Override
-    public void onPopupShow(CefBrowser browser, boolean show) {}
+    public void onPopupShow(CefBrowser browser, boolean show) {
+    }
 
     @Override
-    public void onPopupSize(CefBrowser browser, Rectangle size) {}
+    public void onPopupSize(CefBrowser browser, Rectangle size) {
+    }
 
     @Override
     public void onPaint(CefBrowser browser, boolean popup, Rectangle[] dirtyRects, ByteBuffer buffer, int width, int height) {
@@ -105,10 +107,14 @@ public class CefBrowserOsr extends CefBrowser_N implements CefRenderHandler {
             appendEvent(triggerEvent);
         }
 
-        protected void registerListeners() {}
+        protected void registerListeners() {
+        }
 
-        protected void unregisterListeners() {}
-    };
+        protected void unregisterListeners() {
+        }
+    }
+
+    ;
 
     private static int getDndAction(int mask) {
         // Default to copy if multiple operations are specified.

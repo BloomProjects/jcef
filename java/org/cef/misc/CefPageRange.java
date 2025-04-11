@@ -11,7 +11,8 @@ public class CefPageRange {
     public int from;
     public int to;
 
-    public CefPageRange() {}
+    public CefPageRange() {
+    }
 
     public CefPageRange(int from, int to) {
         this.from = from;

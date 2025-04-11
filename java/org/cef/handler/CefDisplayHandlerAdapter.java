@@ -36,7 +36,7 @@ public abstract class CefDisplayHandlerAdapter implements CefDisplayHandler {
 
     @Override
     public boolean onConsoleMessage(CefBrowser browser, CefSettings.LogSeverity level,
-            String message, String source, int line) {
+                                    String message, String source, int line) {
         return false;
     }
 

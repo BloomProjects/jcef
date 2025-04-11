@@ -7,7 +7,8 @@ package org.cef.callback;
 import java.util.Date;
 
 class CefDownloadItem_N extends CefNativeAdapter implements CefDownloadItem {
-    CefDownloadItem_N() {}
+    CefDownloadItem_N() {
+    }
 
     @Override
     public boolean isValid() {
@@ -170,19 +171,34 @@ class CefDownloadItem_N extends CefNativeAdapter implements CefDownloadItem {
     }
 
     private final native boolean N_IsValid(long self);
+
     private final native boolean N_IsInProgress(long self);
+
     private final native boolean N_IsComplete(long self);
+
     private final native boolean N_IsCanceled(long self);
+
     private final native long N_GetCurrentSpeed(long self);
+
     private final native int N_GetPercentComplete(long self);
+
     private final native long N_GetTotalBytes(long self);
+
     private final native long N_GetReceivedBytes(long self);
+
     private final native Date N_GetStartTime(long self);
+
     private final native Date N_GetEndTime(long self);
+
     private final native String N_GetFullPath(long self);
+
     private final native int N_GetId(long self);
+
     private final native String N_GetURL(long self);
+
     private final native String N_GetSuggestedFileName(long self);
+
     private final native String N_GetContentDisposition(long self);
+
     private final native String N_GetMimeType(long self);
 }

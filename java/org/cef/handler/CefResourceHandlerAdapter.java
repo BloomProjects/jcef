@@ -7,7 +7,6 @@ package org.cef.handler;
 import org.cef.callback.CefCallback;
 import org.cef.misc.IntRef;
 import org.cef.misc.StringRef;
-import org.cef.network.CefCookie;
 import org.cef.network.CefRequest;
 import org.cef.network.CefResponse;
 
@@ -24,7 +23,8 @@ public abstract class CefResourceHandlerAdapter implements CefResourceHandler {
 
     @Override
     public void getResponseHeaders(
-            CefResponse response, IntRef responseLength, StringRef redirectUrl) {}
+            CefResponse response, IntRef responseLength, StringRef redirectUrl) {
+    }
 
     @Override
     public boolean readResponse(
@@ -33,5 +33,6 @@ public abstract class CefResourceHandlerAdapter implements CefResourceHandler {
     }
 
     @Override
-    public void cancel() {}
+    public void cancel() {
+    }
 }

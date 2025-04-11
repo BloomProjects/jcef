@@ -43,7 +43,7 @@ public abstract class CefAppHandlerAdapter implements CefAppHandler {
                             parseSwitchesDone = true;
                             continue;
                         }
-                    // FALL THRU
+                        // FALL THRU
                     case 1: {
                         // Switches can optionally have a value specified using the '=' delimiter
                         // (e.g. "-switch=value").

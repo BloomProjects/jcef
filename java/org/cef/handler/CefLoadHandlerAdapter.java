@@ -16,15 +16,19 @@ import org.cef.network.CefRequest.TransitionType;
 public abstract class CefLoadHandlerAdapter implements CefLoadHandler {
     @Override
     public void onLoadingStateChange(
-            CefBrowser browser, boolean isLoading, boolean canGoBack, boolean canGoForward) {}
+            CefBrowser browser, boolean isLoading, boolean canGoBack, boolean canGoForward) {
+    }
 
     @Override
-    public void onLoadStart(CefBrowser browser, CefFrame frame, TransitionType transitionType) {}
+    public void onLoadStart(CefBrowser browser, CefFrame frame, TransitionType transitionType) {
+    }
 
     @Override
-    public void onLoadEnd(CefBrowser browser, CefFrame frame, int httpStatusCode) {}
+    public void onLoadEnd(CefBrowser browser, CefFrame frame, int httpStatusCode) {
+    }
 
     @Override
     public void onLoadError(CefBrowser browser, CefFrame frame, ErrorCode errorCode,
-            String errorText, String failedUrl) {}
+                            String errorText, String failedUrl) {
+    }
 }

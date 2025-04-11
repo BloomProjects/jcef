@@ -58,6 +58,7 @@ public abstract class CefClientHandler implements CefNative {
 
     /**
      * Returns the java part of the browser implementation.
+     *
      * @param identifer the unique identifier of the browser.
      * @return The found browser or null if none is found.
      */
@@ -65,6 +66,7 @@ public abstract class CefClientHandler implements CefNative {
 
     /**
      * Returns a list of all browser instances.
+     *
      * @return an array of browser Instances.
      */
     abstract protected Object[] getAllBrowser();
@@ -297,21 +299,38 @@ public abstract class CefClientHandler implements CefNative {
     }
 
     private final native void N_CefClientHandler_CTOR();
+
     private final native void N_addMessageRouter(CefMessageRouter h);
+
     private final native void N_removeContextMenuHandler(CefContextMenuHandler h);
+
     private final native void N_removeDialogHandler(CefDialogHandler h);
+
     private final native void N_removeDisplayHandler(CefDisplayHandler h);
+
     private final native void N_removeDownloadHandler(CefDisplayHandler h);
+
     private final native void N_removeDragHandler(CefDragHandler h);
+
     private final native void N_removeFocusHandler(CefFocusHandler h);
+
     private final native void N_removeJSDialogHandler(CefJSDialogHandler h);
+
     private final native void N_removeKeyboardHandler(CefKeyboardHandler h);
+
     private final native void N_removeLifeSpanHandler(CefLifeSpanHandler h);
+
     private final native void N_removeLoadHandler(CefLoadHandler h);
+
     private final native void N_removePrintHandler(CefPrintHandler h);
+
     private final native void N_removeMessageRouter(CefMessageRouter h);
+
     private final native void N_removeRenderHandler(CefRenderHandler h);
+
     private final native void N_removeRequestHandler(CefRequestHandler h);
+
     private final native void N_removeWindowHandler(CefWindowHandler h);
+
     private final native void N_CefClientHandler_DTOR();
 }

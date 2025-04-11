@@ -10,6 +10,7 @@ package org.cef.callback;
 public interface CefStringVisitor {
     /**
      * Called when the string is available.
+     *
      * @param string Requested string.
      */
     void visit(String string);

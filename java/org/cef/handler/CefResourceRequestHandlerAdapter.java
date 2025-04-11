@@ -6,7 +6,6 @@ package org.cef.handler;
 
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
-import org.cef.callback.CefCallback;
 import org.cef.misc.BoolRef;
 import org.cef.misc.StringRef;
 import org.cef.network.CefRequest;
@@ -38,7 +37,8 @@ public abstract class CefResourceRequestHandlerAdapter implements CefResourceReq
 
     @Override
     public void onResourceRedirect(CefBrowser browser, CefFrame frame, CefRequest request,
-            CefResponse response, StringRef new_url) {}
+                                   CefResponse response, StringRef new_url) {
+    }
 
     @Override
     public boolean onResourceResponse(
@@ -48,9 +48,11 @@ public abstract class CefResourceRequestHandlerAdapter implements CefResourceReq
 
     @Override
     public void onResourceLoadComplete(CefBrowser browser, CefFrame frame, CefRequest request,
-            CefResponse response, CefURLRequest.Status status, long receivedContentLength) {}
+                                       CefResponse response, CefURLRequest.Status status, long receivedContentLength) {
+    }
 
     @Override
     public void onProtocolExecution(
-            CefBrowser browser, CefFrame frame, CefRequest request, BoolRef allowOsExecution) {}
+            CefBrowser browser, CefFrame frame, CefRequest request, BoolRef allowOsExecution) {
+    }
 }

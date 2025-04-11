@@ -24,7 +24,8 @@ public abstract class CefURLRequest {
     }
 
     // This CTOR can't be called directly. Call method create() instead.
-    CefURLRequest() {}
+    CefURLRequest() {
+    }
 
     @Override
     protected void finalize() throws Throwable {

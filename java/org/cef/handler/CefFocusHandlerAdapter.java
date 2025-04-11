@@ -23,5 +23,6 @@ public abstract class CefFocusHandlerAdapter implements CefFocusHandler {
     }
 
     @Override
-    public void onGotFocus(CefBrowser browser) {}
+    public void onGotFocus(CefBrowser browser) {
+    }
 }

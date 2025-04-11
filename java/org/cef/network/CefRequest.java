@@ -25,9 +25,9 @@ public abstract class CefRequest {
         RT_IMAGE, //!< Image (jpg/gif/png/etc).
         RT_FONT_RESOURCE, //!< Font.
         RT_SUB_RESOURCE, //!< Some other subresource. This is the default type if
-                         //   the actual type is unknown.
+        //   the actual type is unknown.
         RT_OBJECT, //!< Object (or embed) tag for a plugin, or a resource
-                   //   that a plugin requested.
+        //   that a plugin requested.
         RT_MEDIA, //!< Media resource.
         RT_WORKER, //!< Main resource of a dedicated worker.
         RT_SHARED_WORKER, //!< Main resource of a shared worker.
@@ -39,7 +39,7 @@ public abstract class CefRequest {
         RT_CSP_REPORT, //!< A report of Content Security Policy violations.
         RT_PLUGIN_RESOURCE, //!< A resource that a plugin requested.
         RT_NAVIGATION_PRELOAD_MAIN_FRAME, //!< A main-frame service worker navigation preload
-                                          //!< request.
+        //!< request.
         RT_NAVIGATION_PRELOAD_SUB_FRAME, //!< A sub-frame service worker navigation preload request.
     }
 
@@ -95,6 +95,7 @@ public abstract class CefRequest {
         TT_RELOAD(8);
 
         private int value;
+
         private TransitionType(int source) {
             value = source;
         }
@@ -102,6 +103,7 @@ public abstract class CefRequest {
         /**
          * Returns the integer representation of this enum, containing the source
          * and the qualifier as one value.
+         *
          * @return The integer value of the enum with all its qualifiers.
          */
         public int getValue() {
@@ -110,6 +112,7 @@ public abstract class CefRequest {
 
         /**
          * Returns the source part of the enum as integer.
+         *
          * @return Integer representation of the set source.
          */
         public int getSource() {
@@ -134,6 +137,7 @@ public abstract class CefRequest {
 
         /**
          * Returns the qualifier part of the enum as integer.
+         *
          * @return Integer representation of the set qualifiers.
          */
         public int getQualifiers() {
@@ -142,6 +146,7 @@ public abstract class CefRequest {
 
         /**
          * Removes a qualifier from the enum.
+         *
          * @param The qualifier to be removed.
          */
         public void removeQualifier(TransitionFlags flag) {
@@ -191,7 +196,7 @@ public abstract class CefRequest {
         public static final int UR_FLAG_REPORT_RAW_HEADERS = 1 << 5;
 
         /**
-         *  If set the CefURLRequestClient.onDownloadData method will not be called.
+         * If set the CefURLRequestClient.onDownloadData method will not be called.
          */
         public static final int UR_FLAG_NO_DOWNLOAD_DATA = 1 << 6;
 
@@ -240,12 +245,14 @@ public abstract class CefRequest {
         TT_SERVER_REDIRECT_FLAG(0x80000000);
 
         private final int flag;
+
         private TransitionFlags(int flag) {
             this.flag = flag;
         }
 
         /**
          * Returns the integer representation of the enum.
+         *
          * @return Integer representation of the enum.
          */
         public int getValue() {
@@ -321,7 +328,8 @@ public abstract class CefRequest {
     }
 
     // This CTOR can't be called directly. Call method create() instead.
-    CefRequest() {}
+    CefRequest() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -404,6 +412,7 @@ public abstract class CefRequest {
     /**
      * Get the value for the specified response header field. The Referer value cannot be retrieved
      * using this method. Use getHeaderMap instead if there might be multiple values.
+     *
      * @param name The header name.
      * @return The header value.
      */
@@ -412,10 +421,11 @@ public abstract class CefRequest {
     /**
      * Set the value for the specified response header field. The Referer value cannot be set using
      * this method.
-     * @param name The header name.
-     * @param value The header value.
+     *
+     * @param name      The header name.
+     * @param value     The header value.
      * @param overwrite If true any existing values will be replaced with the new value. If false
-     *         any existing values will not be overwritten.
+     *                  any existing values will not be overwritten.
      */
     public abstract void setHeaderByName(String name, String value, boolean overwrite);
 

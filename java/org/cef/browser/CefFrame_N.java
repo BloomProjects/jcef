@@ -12,7 +12,8 @@ import org.cef.callback.CefNativeAdapter;
  * The visibility of this class is "package".
  */
 class CefFrame_N extends CefNativeAdapter implements CefFrame {
-    CefFrame_N() {}
+    CefFrame_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -149,17 +150,30 @@ class CefFrame_N extends CefNativeAdapter implements CefFrame {
     }
 
     private final native void N_Dispose(long self);
+
     private final native long N_GetIdentifier(long self);
+
     private final native String N_GetURL(long self);
+
     private final native String N_GetName(long self);
+
     private final native boolean N_IsMain(long self);
+
     private final native boolean N_IsValid(long self);
+
     private final native boolean N_IsFocused(long self);
+
     private final native CefFrame N_GetParent(long self);
+
     private final native void N_ExecuteJavaScript(long self, String code, String url, int line);
+
     private final native void N_Undo(long self);
+
     private final native void N_Redo(long self);
+
     private final native void N_Cut(long self);
+
     private final native void N_Copy(long self);
+
     private final native void N_Paste(long self);
 }

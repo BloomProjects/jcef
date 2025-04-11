@@ -10,7 +10,8 @@ package org.cef.misc;
 public class BoolRef {
     private boolean value_;
 
-    public BoolRef() {}
+    public BoolRef() {
+    }
 
     public BoolRef(boolean value) {
         value_ = value;

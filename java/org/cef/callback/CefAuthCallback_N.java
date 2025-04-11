@@ -5,7 +5,8 @@
 package org.cef.callback;
 
 class CefAuthCallback_N extends CefNativeAdapter implements CefAuthCallback {
-    CefAuthCallback_N() {}
+    CefAuthCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {
@@ -32,5 +33,6 @@ class CefAuthCallback_N extends CefNativeAdapter implements CefAuthCallback {
     }
 
     private final native void N_Continue(long self, String username, String password);
+
     private final native void N_Cancel(long self);
 }

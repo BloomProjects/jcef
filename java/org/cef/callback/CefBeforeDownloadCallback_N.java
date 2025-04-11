@@ -5,7 +5,8 @@
 package org.cef.callback;
 
 class CefBeforeDownloadCallback_N extends CefNativeAdapter implements CefBeforeDownloadCallback {
-    CefBeforeDownloadCallback_N() {}
+    CefBeforeDownloadCallback_N() {
+    }
 
     @Override
     protected void finalize() throws Throwable {

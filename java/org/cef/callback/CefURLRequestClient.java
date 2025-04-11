@@ -50,5 +50,5 @@ public interface CefURLRequestClient extends CefNative {
      * will only be called for requests initiated from the browser process.
      */
     boolean getAuthCredentials(boolean isProxy, String host, int port, String realm, String scheme,
-            CefAuthCallback callback);
+                               CefAuthCallback callback);
 }

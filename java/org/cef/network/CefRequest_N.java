@@ -256,29 +256,52 @@ class CefRequest_N extends CefRequest implements CefNative {
     }
 
     private final native static CefRequest_N N_Create();
+
     private final native void N_Dispose(long self);
+
     private final native long N_GetIdentifier(long self);
+
     private final native boolean N_IsReadOnly(long self);
+
     private final native String N_GetURL(long self);
+
     private final native void N_SetURL(long self, String url);
+
     private final native String N_GetMethod(long self);
+
     private final native void N_SetMethod(long self, String method);
+
     private final native void N_SetReferrer(long self, String url, ReferrerPolicy policy);
+
     private final native String N_GetReferrerURL(long self);
+
     private final native ReferrerPolicy N_GetReferrerPolicy(long self);
+
     private final native CefPostData N_GetPostData(long self);
+
     private final native void N_SetPostData(long self, CefPostData postData);
+
     private final native String N_GetHeaderByName(long self, String name);
+
     private final native void N_SetHeaderByName(
             long self, String name, String value, boolean overwrite);
+
     private final native void N_GetHeaderMap(long self, Map<String, String> headerMap);
+
     private final native void N_SetHeaderMap(long self, Map<String, String> headerMap);
+
     private final native void N_Set(long self, String url, String method, CefPostData postData,
-            Map<String, String> headerMap);
+                                    Map<String, String> headerMap);
+
     private final native int N_GetFlags(long self);
+
     private final native void N_SetFlags(long self, int flags);
+
     private final native String N_GetFirstPartyForCookies(long self);
+
     private final native void N_SetFirstPartyForCookies(long self, String url);
+
     private final native ResourceType N_GetResourceType(long self);
+
     private final native TransitionType N_GetTransitionType(long self);
 }

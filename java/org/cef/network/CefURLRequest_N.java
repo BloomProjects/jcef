@@ -101,9 +101,14 @@ class CefURLRequest_N extends CefURLRequest implements CefNative {
     }
 
     private final native void N_Create(CefRequest request, CefURLRequestClient client);
+
     private final native void N_Dispose(long self);
+
     private final native Status N_GetRequestStatus(long self);
+
     private final native ErrorCode N_GetRequestError(long self);
+
     private final native CefResponse N_GetResponse(long self);
+
     private final native void N_Cancel(long self);
 }

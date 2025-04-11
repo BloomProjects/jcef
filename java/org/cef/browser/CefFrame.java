@@ -16,12 +16,14 @@ public interface CefFrame {
     /**
      * Returns the globally unique identifier for this frame or < 0 if the
      * underlying frame does not yet exist.
+     *
      * @return The frame identifier
      */
     long getIdentifier();
 
     /**
      * Emits the URL currently loaded in this frame.
+     *
      * @return the URL currently loaded in this frame.
      */
     String getURL();
@@ -32,24 +34,28 @@ public interface CefFrame {
      * returned. Otherwise a unique name will be constructed based on the frame
      * parent hierarchy. The main (top-level) frame will always have an empty name
      * value.
+     *
      * @return The frame name
      */
     String getName();
 
     /**
      * Returns true if this is the main (top-level) frame.
+     *
      * @return True if this frame is top-level otherwise false.
      */
     boolean isMain();
 
     /**
      * True if this object is currently attached to a valid frame.
+     *
      * @return True if valid otherwise false.
      */
     boolean isValid();
 
     /**
      * Returns true if this is the focused frame.
+     *
      * @return True if valid otherwise false.
      */
     boolean isFocused();
@@ -57,6 +63,7 @@ public interface CefFrame {
     /**
      * Returns the parent of this frame or NULL if this is the main (top-level)
      * frame.
+     *
      * @return The parent frame or NULL if this is the main frame
      */
     CefFrame getParent();
@@ -69,7 +76,7 @@ public interface CefFrame {
      * reporting.
      *
      * @param code The code to be executed.
-     * @param url The URL where the script in question can be found.
+     * @param url  The URL where the script in question can be found.
      * @param line The base line number to use for error reporting.
      */
     public void executeJavaScript(String code, String url, int line);

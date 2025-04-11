@@ -7,7 +7,7 @@ package org.cef.callback;
 import java.util.Vector;
 
 /**
- *  Provides information about the context menu state. The methods of this class
+ * Provides information about the context menu state. The methods of this class
  * can only be accessed on browser process the UI thread.
  */
 public interface CefContextMenuParams {

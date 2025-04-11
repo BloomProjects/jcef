@@ -24,7 +24,7 @@ public abstract class CefCookieAccessFilterAdapter implements CefCookieAccessFil
 
     @Override
     public boolean canSaveCookie(CefBrowser browser, CefFrame frame, CefRequest request,
-            CefResponse response, CefCookie cookie) {
+                                 CefResponse response, CefCookie cookie) {
         return true;
     }
 }

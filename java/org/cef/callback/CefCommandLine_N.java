@@ -8,7 +8,8 @@ import java.util.Map;
 import java.util.Vector;
 
 class CefCommandLine_N extends CefNativeAdapter implements CefCommandLine {
-    CefCommandLine_N() {}
+    CefCommandLine_N() {
+    }
 
     @Override
     public void reset() {
@@ -140,15 +141,26 @@ class CefCommandLine_N extends CefNativeAdapter implements CefCommandLine {
     }
 
     private final native void N_Reset(long self);
+
     private final native String N_GetProgram(long self);
+
     private final native void N_SetProgram(long self, String program);
+
     private final native boolean N_HasSwitches(long self);
+
     private final native boolean N_HasSwitch(long self, String name);
+
     private final native String N_GetSwitchValue(long self, String name);
+
     private final native Map<String, String> N_GetSwitches(long self);
+
     private final native void N_AppendSwitch(long self, String name);
+
     private final native void N_AppendSwitchWithValue(long self, String name, String value);
+
     private final native boolean N_HasArguments(long self);
+
     private final native Vector<String> N_GetArguments(long self);
+
     private final native void N_AppendArgument(long self, String argument);
 }

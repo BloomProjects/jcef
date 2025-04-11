@@ -20,10 +20,12 @@ public abstract class CefLifeSpanHandlerAdapter implements CefLifeSpanHandler {
     }
 
     @Override
-    public void onAfterCreated(CefBrowser browser) {}
+    public void onAfterCreated(CefBrowser browser) {
+    }
 
     @Override
-    public void onAfterParentChanged(CefBrowser browser) {}
+    public void onAfterParentChanged(CefBrowser browser) {
+    }
 
     @Override
     public boolean doClose(CefBrowser browser) {
@@ -31,5 +33,6 @@ public abstract class CefLifeSpanHandlerAdapter implements CefLifeSpanHandler {
     }
 
     @Override
-    public void onBeforeClose(CefBrowser browser) {}
+    public void onBeforeClose(CefBrowser browser) {
+    }
 }
